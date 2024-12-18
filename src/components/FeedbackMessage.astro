@@ -1,0 +1,49 @@
+---
+interface Props {
+  email: string;
+}
+
+const { email } = Astro.props;
+---
+
+<div id="feedback" class="feedback hidden">
+  <p>Nous sommes désolés que notre service n'ait pas répondu à vos attentes.</p>
+  <a href={`mailto:${email}`} class="contact-link">
+    Veuillez nous contacter
+  </a>
+</div>
+
+<style>
+  .feedback {
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #4a5568;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 1rem;
+    margin-top: 1rem;
+  }
+
+  .contact-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    background: rgba(37, 99, 235, 0.1);
+  }
+
+  .contact-link:hover {
+    color: #1d4ed8;
+    background: rgba(37, 99, 235, 0.15);
+    text-decoration: underline;
+  }
+
+  .hidden {
+    display: none;
+  }
+</style>
